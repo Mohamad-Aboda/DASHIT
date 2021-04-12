@@ -8,15 +8,13 @@
 
 # ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) Project Structure
 ```
+├───.assets
 ├───.vscode
 │   └───.ropeproject
 ├───CSV
-│   ├───Aboda
-│   │   └───POS
-│   ├───M49DI
-│   │   └───POS
-│   ├───magdi1234
-│   └───test
+│   └───user
+│       ├───GenDashboard
+│       └───POSDashboard
 ├───static
 │   └───img
 │       └───POS
@@ -24,7 +22,7 @@
 │   ├───Base
 │   │   └───includes
 │   ├───includes
-│   └───test
+│   └───user
 │       └───includes
 └───__pycache__
 ```
