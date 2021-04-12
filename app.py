@@ -29,12 +29,11 @@ emailRegex = '^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$'
 
 # application config
 app.config['MYSQL_HOST'] = 'us-cdbr-east-03.cleardb.com'
-app.config['MYSQL_USER'] = 'b18df65190f546'
-app.config['MYSQL_PASSWORD'] = '09f30963'
-app.config['MYSQL_DB'] = 'heroku_782de844fbb1acb'
+app.config['MYSQL_USER'] = 'b30c1f9a1cf586'
+app.config['MYSQL_PASSWORD'] = 'fc0ff0bf'
+app.config['MYSQL_DB'] = 'heroku_dd81ad0ab4592be'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 app.config['UPLOAD_FOLDER'] = 'CSV'
-
 
 mysql = MySQL(app)
 
