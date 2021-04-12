@@ -39,9 +39,10 @@
 
 ## Usage
 
-- run `pip install -r requirements.txt` to install all packages and libraries needed for the project
-- navigate to `flask_project` then run `flask run`
+- Run `pip install -r requirements.txt` to install all packages and libraries needed for the project
+- Navigate to `flask_project` then run `flask run`
 - The application will run at http://127.0.0.1:5000/
+- You can login with these credentials ``username = user`` and ``password = 123``
 
 # ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Overview & Result
 
