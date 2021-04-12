@@ -1,0 +1,1 @@
+{"kpi": {"total_amount": {"operation": "SUM", "columns": ["total_amount"]}, "adding_units": {"operation": "ADD", "columns": ["unitsA", " unitsB"]}}, "chart": {"Chart": {"type": "BARCHART", "columns": ["country", " total_amount"]}}}

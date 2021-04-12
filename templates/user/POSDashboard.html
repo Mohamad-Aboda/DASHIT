@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for("static", filename="navstyle.css") }}"
+    />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for("static", filename="dashboard.css") }}"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.0.2/echarts.min.js"
+      integrity="sha512-t9GZbGKCH5MuYUFsq5AdrhllT0kdnc2fNMizKDgLXBBXgHP2dXxjRPOzYJauAXW9OXLlSYELUqWD30k7cb0Mkg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{ url_for("static", filename="pos.js") }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="{{ url_for("static", filename="jquery-3.6.0.js") }}"></script>
+    <title>POSDashboard</title>
+  </head>
+  <body>
+    {% include "includes/_navbar.html" %} {% include "includes/_posFilter.html" %}      <div class="halfcards">
+<div class="halfcard">
+  <div class="averageSales">
+    <div class="halfcardcontent">
+      <div class="count_content">
+        <h6>Total Sales</h6>
+        <h2><span class="counter" id="totalSales"></span> EGP</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="halfcard">
+  <div class="averageSales">
+    <div class="halfcardcontent">
+      <div class="count_content">
+        <h6>Average Inventory Amount</h6>
+        <h2><span class="counter" id="averageInventoryAmount"></span>EGP</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="halfcard">
+  <div class="averageSales">
+    <div class="halfcardcontent">
+      <div class="count_content">
+        <h6>Total OnHand Amount</h6>
+        <h2><span class="counter" id="totalOnhandAmount"></span>EGP</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="halfcard">
+  <div class="averageSales">
+    <div class="halfcardcontent">
+      <div class="count_content">
+        <h6>Sales Per Store</h6>
+        <h2><span class="counter" id="salesPerStore"></span>EGP</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="halfcard">
+  <div class="averageSales">
+    <div class="halfcardcontent">
+      <div class="count_content">
+        <h6>Distinct Products Sold</h6>
+        <h2><span class="counter" id="distinctProductsSold"></span></h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="halfcard">
+  <div class="averageSales">
+    <div class="halfcardcontent">
+      <div class="count_content">
+        <h6>Out Of Stock</h6>
+        <h2><span class="counter" id="outOfStock"></span></h2>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+      <div class="cards">
+<div class="card">
+    <div class="chart" id="totalsalesperday"></div>
+</div>
+<div class="card">
+    <div class="chart" id="totalsalespercountry"></div>
+</div>
+<div class="card">
+    <div class="chart" id="totalsalespercity"></div>
+</div>
+<div class="card">
+    <div class="chart" id="totalsalesperstore"></div>
+</div>
+<div class="card">
+    <div class="chart" id="topproducts"></div>
+</div>
+<div class="card">
+    <div class="chart" id="topbrands"></div>
+</div>
+<div class="doubleCard"> <div class="chart" id="salespercentageforbrand"></div></div>    </div>
+
+<script type="text/javascript">
+  filterOption();
+  getData();
+</script>
+</body>
+</html>

@@ -8,11 +8,10 @@ def CHART(data, columns_names):
     groupByCol = columns_names[0]
     groupCol = columns_names[1]
     
-    result = data[0].groupby(groupByCol)[groupCol].sum()
+    result = data.groupby(groupByCol)[groupCol].sum()
     result -= result
     
-    for df in data:
-        result = result.add(df.groupby(groupByCol)[groupCol].sum(), fill_value = 0)
+    result = result.add(data.groupby(groupByCol)[groupCol].sum(), fill_value = 0)
     return result.to_json(orient = 'split')
 
 

@@ -43,13 +43,15 @@ def sales_per_store(location, flag=0):
     for df in data[:-1]:
         no_of_stores_last = max(no_of_stores_last, len(df['store'].unique()))
 
-
-    if no_of_stores_now == 0 or no_of_stores_last == 0:
-        return 0
-
     total = total_sales(data, 1)
-    result_now = round(int(total[0]) / no_of_stores_now)
-    result_last = round((int(total[0]) - int(total[1])) / no_of_stores_last)
+    try:
+        result_now = round(int(total[0]) / no_of_stores_now)
+    except:
+        result_now = 0
+    try:
+        result_last = round((int(total[0]) - int(total[1])) / no_of_stores_last)
+    except:
+        result_last = 0
     result = {}
     result['data'] = [str(result_now), str(result_last)] 
     return result['data']
@@ -148,9 +150,11 @@ def out_of_stock(location, flag=0):
 
     df = data[-1]
     now = df['onhand_units'][df['onhand_units'] == 0].count()
-
-    df = data[-2]
-    last= df['onhand_units'][df['onhand_units'] == 0].count()
+    try:
+        df = data[-2]
+        last= df['onhand_units'][df['onhand_units'] == 0].count()
+    except:
+        last = 0
     result = {}
     result['data'] = [str(now), str(last)] 
     return result['data']

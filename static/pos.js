@@ -70,7 +70,7 @@ function totalOnhandAmount(results) {
   element.appendChild(tag);
   var subelement = element.parentElement.parentElement.parentElement.parentElement.parentElement
   var subtag = document.createElement("h5");
-  if(total>last){
+  if(total>=last){
     var subtext = document.createTextNode("↑ "+ (((total-last)/total)*100).toFixed(2) + '%');
     subtag.appendChild(subtext);
     subelement.appendChild(subtag);
@@ -127,7 +127,7 @@ function distinctProductsSold(results) {
   tag.appendChild(text);
   element.appendChild(tag);
   var subelement = element.parentElement.parentElement.parentElement.parentElement.parentElement
-  if(total>last){
+  if(total>=last){
     subelement.style.color='#0DA65F';
     subelement.style.backgroundImage = "url('../static/img/green.svg')";
     subelement.style.backgroundSize = "cover";

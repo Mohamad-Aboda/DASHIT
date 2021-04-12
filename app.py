@@ -1,5 +1,5 @@
 from flask import Flask, render_template, send_from_directory, abort, redirect, url_for, session, logging, request, jsonify, flash, send_file
-from random import sample
+from random import sample, randint
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from flask_mysqldb import MySQL
@@ -20,17 +20,9 @@ import pandas as pd
 import pickle
 import io
 import csv
-from flask import Flask, render_template
-import sys
-import logging
-
 
 app = Flask(__name__)
-
-
-
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
+app.secret_key = os.urandom(24)
 
 
 ALLOWED_EXTENSIONS = {'csv', 'xlsx'}
@@ -38,11 +30,12 @@ emailRegex = '^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$'
 
 # application config
 app.config['MYSQL_HOST'] = 'us-cdbr-east-03.cleardb.com'
-app.config['MYSQL_USER'] = 'b30c1f9a1cf586'
-app.config['MYSQL_PASSWORD'] = 'fc0ff0bf'
-app.config['MYSQL_DB'] = 'heroku_dd81ad0ab4592be'
+app.config['MYSQL_USER'] = 'b18df65190f546'
+app.config['MYSQL_PASSWORD'] = '09f30963'
+app.config['MYSQL_DB'] = 'heroku_782de844fbb1acb'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 app.config['UPLOAD_FOLDER'] = 'CSV'
+
 
 mysql = MySQL(app)
 
@@ -65,17 +58,18 @@ def home():
 
 # dashboard
 @app.route('/dashboard')
-@is_logged_in
 def dashboardSelector():
     return render_template(session['username'] + '/dashboardselector.html')
 
+@app.route('/all')
+def allDahsboards():
+    return render_template('/all.html')
+
 @app.route('/dashboard/<dashboard>')
-@is_logged_in
 def dashboard(dashboard):
     return render_template(session['username']+ '/' + dashboard +'.html')
 
 @app.route('/dashboard/generate')
-@is_logged_in
 def dashboardGenerator():
     return render_template('dashboardgenerator.html')
 
@@ -174,7 +168,6 @@ def logout():
 
 
 @app.route('/filter/pos/<location>', methods=['POST'])
-@is_logged_in
 def posFilter(location):
     location = session['username'] + '/' + location
     rf = request.form
@@ -212,7 +205,6 @@ def posFilter(location):
 
 # api for the data
 @app.route('/data/pos/<location>')
-@is_logged_in
 def posData(location):
     location = session['username'] + '/' + location
     return jsonify({'totalSales': KPIs.total_sales(location),
@@ -232,7 +224,6 @@ def posData(location):
                     })
 
 @app.route('/data/general/<location>')
-@is_logged_in
 def generalData(location):
     location = session['username'] + '/' + location
     f = open('templates/' + location + '.json')
@@ -253,7 +244,6 @@ def generalData(location):
 
 
 @app.route('/filter/finance', methods=['POST'])
-@is_logged_in
 def financeFilter():
     rf = request.form
     for key in rf.keys():
@@ -291,7 +281,6 @@ def financeFilter():
 
 # api for the data
 @app.route('/data/finance')
-@is_logged_in
 def financeData():
     return jsonify({'totalRevenue' : str(FinancialKPIs.total_revenues('finance')),
                     'COGS' : str(FinancialKPIs.COGS('finance')),
@@ -313,7 +302,6 @@ def financeData():
 
 
 @app.route('/generate', methods=['POST'])
-@is_logged_in
 def generate():
     rf = request.form
     for key in rf.keys():
@@ -326,7 +314,6 @@ def generate():
     return jsonify({'Success': True})
 
 @app.route('/delete', methods=['POST'])
-@is_logged_in
 def delete():
     rf = request.form
     for key in rf.keys():
@@ -344,7 +331,6 @@ def allowed_file(filename):
 
 # upload page
 @app.route('/upload', methods=['GET', 'POST'])
-@is_logged_in
 def upload():
     if request.method == 'POST':
         # saves each file in the corresponding directory
@@ -354,13 +340,12 @@ def upload():
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(
-                    app.config['UPLOAD_FOLDER'] +  '/' +  session['username'] +'/' + folder +'/', filename))
+                    app.config['UPLOAD_FOLDER'] +  '/' +  session['username'] +'/' + folder +'/', filename.split('.')[0] + str(randint(0,1000)) + '.' + filename.split('.')[1]))
                 flash(folder.upper() + '-' +file.filename + ' uploaded successfully')
         return redirect(request.url)
     return render_template(session['username'] + '/upload.html')
 
 @app.route('/predict', methods=['GET', 'POST'])
-@is_logged_in
 def predict():
     if request.method == 'POST':
         # saves each file in the corresponding directory
@@ -393,11 +378,11 @@ def predict():
     return render_template(session['username'] + '/predict.html')
 
 @app.route('/download/<path:p>')
-@is_logged_in
 def downloadFile(p):
     print('CSV/' + session['username'] + '/' + p.split('template')[0])
     return send_from_directory('CSV/' + session['username'] + '/' + p.split('template')[0], filename=p.split('/')[-1], as_attachment=True)
 
 if __name__ == '__main__':
-    app.secret_key = 'secret123'
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
+

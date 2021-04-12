@@ -1,0 +1,8 @@
+date,country,city,store,brand,product,sold_units,onhand_units,sold_amount,onhand_amount
+25-06-2007,Egypt,Cairo,A,Apple,12,3,6,50,60  
+25-06-2007,USA,New-York,AA,Oppo,a4,4,3,30,80  
+25-06-2007,Egypt,Cairo,B,samsung,s4,3,10,40,40  
+25-06-2007,USA,Chicago,AB,Oppo,a5,6,15,70,120  
+25-06-2007,USA,Chicago,BB,Samsung,s5,7,15,50,100 
+25-06-2007,Egypt,Mansoura,D,Oppo,a5,2,20,10,100
+25-06-2007,Egypt,Cairo,B,Apple,11,4,1,40,80
