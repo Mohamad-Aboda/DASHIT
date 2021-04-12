@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="NavContainer">
+    <div class="LeftSection">
+      <h3>DashIt</h3>
+    </div>
+    <div class="MiddleSection">
+      {% if session.logged_in %}
+      <a class="solid-clickable" href="/">Home</a>
+      <a class="solid-clickable" href="/dashboard">Dashboard</a>
+      <a class="solid-clickable" href="/upload">Upload File</a>
+      <a class="solid-clickable" href="/predict">Predict</a>
+      {% endif %}
+    </div>
+    <div class="RightSection">
+      {% if session.logged_in %}
+      <a class="solid-clickable" href="/logout">Logout</a>
+      {% else %}
+      <a class="solid-clickable" href="/signin">Sign In</a>
+      <a class="solid-clickable" href="/signup">Sign up</a>
+      {% endif %}
+    </div>
+  </div>
+</header>

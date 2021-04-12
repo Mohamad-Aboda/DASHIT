@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #fff;
+  display: grid;
+}
+.frames {
+  min-width: 450px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  grid-gap: 15px;
+}
+.frame {
+  flex: 1;
+  min-width: 400px;
+  height: 400px;
+  border-radius: 5px;
+  box-shadow: 2px 3px 10px 2px rgb(0 0 0 / 10%);
+  overflow: hidden;
+  background: none;
+  color: #333;
+  font-family: "Montserrat";
+}
+
+.center {
+  flex: 1;
+  position: sticky;
+  top: 20%;
+  left: 47px;
+  height: 260px;
+  border-radius: 3px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.title {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+h1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #30186d;
+  font-size: 18px;
+  font-weight: 800;
+  color: #30186d;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 300;
+  color: #30186d;
+}
+.dropzone {
+  width: 100%;
+  height: 100px;
+  border: 1px dashed #30186d;
+  border-radius: 3px;
+  text-align: center;
+  align-content: center;
+}
+
+.upload-icon {
+  position: absolute;
+  top: 50%;
+  right: 48%;
+  transform: translateY(-50%);
+}
+
+.upload-input {
+  flex: 1;
+  position: relative;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.btn {
+  background-color: #fc6a28;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 49px;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0px 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background-color: #ff7738;
+  box-shadow: 0 0 10px #fc6a28;
+}
+
+.center.download{
+  height: auto;
+}

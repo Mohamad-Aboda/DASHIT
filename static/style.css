@@ -1,0 +1,283 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.forms-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.signin-signup {
+  position: absolute;
+  top: 25%;
+  left: 53%;
+  width: 45%;
+  display: grid;
+  grid-template-columns: 1fr;
+  z-index: 5;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.2s 0.5s;
+  overflow: hidden;
+}
+
+form.sign-up-form {
+  z-index: 1;
+}
+
+form.sign-in-form {
+  z-index: 2;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #30186d;
+  margin-bottom: 10px;
+}
+
+.input-field {
+  max-width: 380px;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 8px 0;
+  height: 50px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 50px;
+  color: #30186d;
+  transition: 0.5s;
+  font-size: 1.1rem;
+}
+
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #30186d;
+}
+
+.input-field input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
+
+.btn.solid {
+  background-color: #fc6a28;
+  border: none;
+  outline: none;
+  max-width: 380px;
+  width: 100%;
+  height: 49px;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 8px 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn.solid:hover {
+  background-color: #ff7738;
+  box-shadow: 0 0 10px #fc6a28;
+}
+
+.btn.transparent {
+  background-color: #ffbc9e09;
+  font-family: "Montserrat", sans-serif;
+  border-style: solid;
+  outline: none;
+  border-color: #fc6a28;
+  max-width: 380px;
+  width: 100%;
+  height: 49px;
+  border-radius: 5px;
+  color: #fc6a28;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 8px 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn.transparent:hover {
+  background-color: #fff;
+  box-shadow: 0 0 5px #fc6a28;
+}
+
+.panels-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container:before {
+  content: "";
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top: -10%;
+  right: 48%;
+  transform: translateY(-56%);
+  background-image: linear-gradient(-270deg, #fc6b28 50%, #fa854e 100%);
+  transition: 0.5s ease-in-out;
+  border-radius: 50%;
+  z-index: 6;
+}
+
+.image {
+  width: 540px;
+  transition: transform 0.5s ease-in-out;
+  transition-delay: 0.4s;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  text-align: center;
+  z-index: 6;
+}
+
+.left-panel {
+  pointer-events: all;
+}
+
+.panel h3 {
+  font-weight: 600;
+  line-height: 1;
+  font-size: 1.5rem;
+}
+
+.panel p {
+  font-size: 0.95rem;
+  padding: 0.7rem 0;
+}
+
+/* ANIMATION */
+@media (max-width: 910px) {
+  .container {
+    min-height: 800px;
+    height: 100vh;
+  }
+  .signin-signup {
+    width: 100%;
+    top: 98%;
+    transform: translate(-50%, -100%);
+    transition: 0.3s 0.1s ease-in-out;
+  }
+
+  .signin-signup {
+    left: 50%;
+  }
+
+  .panels-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+  }
+
+  .panel {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2.5rem 8%;
+    grid-column: 1 / 2;
+  }
+
+  .left-panel {
+    grid-row: 1 / 2;
+  }
+
+  .image {
+    width: 500px;
+    transition: transform 0.3s ease-in-out;
+    transition-delay: 0.3s;
+  }
+
+  .panel .content {
+    transition: transform 0.5s ease-in-out;
+    transition-delay: 0.3s;
+  }
+
+  .panel h3 {
+    font-size: 1.2rem;
+  }
+
+  .panel p {
+    font-size: 0.7rem;
+    padding: 0.5rem 0;
+  }
+
+  .container:before {
+    width: 1500px;
+    height: 1500px;
+    transform: translateX(-50%);
+    left: 30%;
+    bottom: 68%;
+    right: initial;
+    top: initial;
+    transition: 0.5s ease-in-out;
+  }
+}
+
+@media (max-width: 612px) {
+  form {
+    padding: 0 1.5rem;
+  }
+
+  .image {
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    transition-delay: 0.3s;
+  }
+  .panel .content {
+    padding: 0.5rem 1rem;
+  }
+  .container {
+    padding: 1.5rem;
+  }
+
+  .container:before {
+    bottom: 72%;
+    left: 50%;
+  }
+}

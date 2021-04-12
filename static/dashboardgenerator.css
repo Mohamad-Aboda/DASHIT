@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #fff;
+  display: grid;
+}
+.cards {
+  min-width: 450px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 20px;
+  grid-gap: 15px;
+}
+.filters{
+  min-width: 450px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  grid-gap: 15px;
+  justify-content: space-evenly;
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 398px;
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 2px 3px 10px 2px rgb(0 0 0 / 7%);
+  overflow: hidden;
+  background: none;
+  color: #333;
+  font-family: "Montserrat";
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 2px 3px 10px 2px rgb(0 0 0 / 7%);
+  overflow: hidden;
+  background: none;
+  color: #333;
+  font-family: "Montserrat";
+  justify-content: center;
+  align-items: center;
+}
+
+.fullcard {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  height: 80px;
+  border-radius: 5px;
+  box-shadow: 2px 3px 10px 2px rgb(0 0 0 / 7%);
+  overflow: hidden;
+  background: none;
+  color: #333;
+  font-family: "Montserrat";
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: none;
+  color: #333;
+  font-family: "Montserrat";
+  justify-content: center;
+  align-items: center;
+}
+
+.filter{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  height: 70px;
+  border-radius: 5px;
+  box-shadow: 2px 3px 10px 2px rgb(0 0 0 / 7%);
+  overflow: hidden;
+  background: none;
+  color: #333;
+  font-family: "Montserrat";
+  justify-content: center;
+  align-items: center;
+}
+.fullfilter{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  height: 70px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: none;
+  color: #333;
+  font-family: "Montserrat";
+  justify-content: center;
+  align-items: center;
+}
+.btnsolid{
+  background-color: #FC6A28;
+  border: none;
+  outline: none;
+  width: 95%;
+  height: 100%;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 8px 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btnsolid:hover{
+  background-color: #ff7738;
+  box-shadow: 0 0 10px #FC6A28;
+}
+
+.checkbox-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="checkbox"]::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f00c";
+  font-size: 140px;
+  color: white;
+  display: none;
+}
+
+input[type="checkbox"]:checked {
+  background-color: rgba(5, 202, 38, 0.5);
+}
+input[type="checkbox"]:checked::after {
+  display: block;
+}
+
+.checkbox-wrapper.totalSales {
+  background-image: url("img/POS/Total\ Sales.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.checkbox-wrapper.averageInventoryAmount {
+  background-image: url("img/POS/Average\ Inventory\ Amount.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.checkbox-wrapper.totalOnhandAmount {
+  background-image: url("img/POS/Total\ OnHand\ Amount.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.checkbox-wrapper.salesPerStore {
+  background-image: url("img/POS/Sales\ Per\ Store.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.checkbox-wrapper.distinctProductsSold {
+  background-image: url("img/POS/Distinct\ Products\ Sold.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.checkbox-wrapper.outOfStock {
+  background-image: url("img/POS/Out\ Of\ Stock.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.checkbox-wrapper.totalSalesPerDay {
+  background-image: url("img/POS/Total\ Sales\ Per\ Day.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.checkbox-wrapper.totalSalesPerCountry {
+  background-image: url("img/POS/Total\ Sales\ Per\ Country.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.checkbox-wrapper.totalSalesPerCity {
+  background-image: url("img/POS/Total\ Sales\ Per\ City.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.checkbox-wrapper.totalSalesPerStore {
+  background-image: url("img/POS/Total\ Sales\ Per\ Store.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.checkbox-wrapper.topProducts {
+  background-image: url("img/POS/Top\ Products.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.checkbox-wrapper.topBrands {
+  background-image: url("img/POS/Top\ Brands.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.checkbox-wrapper.salesPercentageForBrand{
+  background-image: url("img/POS/Sales\ Percentage\ For\ Brand.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.select {
+  width: 90%;
+  min-width: 100px;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+}
+
+.selectKPI {
+  width: 90%;
+  min-width: 100px;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+}
+
+.dashboardName{
+  width: 90%;
+  outline: none;
+  min-width: 100px;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+}
+
+.columns{
+  width: 90%;
+  outline: none;
+  min-width: 100px;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  display: grid;
+  grid-template-areas: "select";
+}
+select,
+.select:after {
+  grid-area: select;
+}
+
+.select::after {
+  justify-self: end;
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: var(--select-arrow);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+.selectdiscription{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

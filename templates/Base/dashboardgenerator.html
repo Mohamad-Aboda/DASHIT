@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='navstyle.css') }}"
+    />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{{ url_for('static', filename='jquery-3.6.0.js') }}"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='dashboardgenerator.css') }}"
+    />
+    <script src="{{ url_for('static', filename='generate.js') }}"></script>
+    <title>Create Dashboard</title>
+  </head>
+  <body>
+    {% include 'includes/_navbar.html' %}
+    <div class="filters">
+      <div class="filter">
+        <div class="selectdiscription">Dashboard Type</div>
+        <div class="select">
+          <select id="Dashboard">
+            <option value="Option 1">None</option>
+            <option value="Option 2">POS</option>
+            <option value="Option 3">General</option>
+          </select>
+        </div>
+      </div>
+      <div class="filter">
+        <div class="selectdiscription">Name</div>
+        <input id="dashboardName" class="dashboardName" type="text">
+        </div>
+      </div>
+    </div>
+    <div class="dashboard" id="POS">
+      <div class="cards">
+        <div class="card">
+          <div class="checkbox-wrapper totalSales">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="totalSales" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="checkbox-wrapper averageInventoryAmount">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="averageInventoryAmount" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="checkbox-wrapper totalOnhandAmount">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="totalOnhandAmount" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="checkbox-wrapper salesPerStore">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="salesPerStore" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="checkbox-wrapper distinctProductsSold">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="distinctProductsSold" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="checkbox-wrapper outOfStock">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="outOfStock" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="checkbox-wrapper totalSalesPerDay">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="totalSalesPerDay" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="checkbox-wrapper totalSalesPerCountry">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="totalSalesPerCountry" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="checkbox-wrapper totalSalesPerCity">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="totalSalesPerCity" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="checkbox-wrapper totalSalesPerStore">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="totalSalesPerStore" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="checkbox-wrapper topProducts">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="topProducts" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="checkbox-wrapper topBrands">
+            <input name="selectedDashboard" class="checkbox" type="checkbox" id="topBrands" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard" id="General">
+      <div class="cards" id="kpicard">
+        <div class="fullcard">
+          <div class="container">
+            <div class="selectdiscription">KPI Name</div>
+            <input id="kpiName" class="columns" type="text">
+          </div>
+          <div class="container">
+            <div class="selectdiscription">Function</div>
+            <div class="selectKPI" id="selectKPI">
+              <select id="function">
+                <option value="Option 1">None</option>
+                <option value="Option 2">SUM</option>
+                <option value="Option 3">AVERAGE</option>
+                <option value="Option 4">ADD</option>
+                <option value="Option 5">SUBTRACT</option>
+                <option value="Option 6">DIVIDE</option>
+                <option value="Option 7">PERCENTAGE</option>
+                <option value="Option 7">BARCHART</option>
+              </select>
+            </div>
+          </div>
+          <div class="container">
+            <div class="selectdiscription">Columns</div>
+            <input id="columns" class="columns" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="filters">
+        <div class="fullfilter">
+          <button class="btnsolid" id="addKpi" onclick="addKpi()">Add KPI</button>
+        </div>
+      </div>
+    </div>
+    <div class="filters">
+      <div class="fullfilter">
+        <button class="btnsolid" id="select" onclick="getSelected()">Add Dashboard</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    $(function(){
+          $('.select').change(function(){
+            var selected = $(this).find(':selected').text();
+            $(".dashboard").hide();
+            $('#' + selected).show();
+          }).change()
+    });
+  </script>
+</html>

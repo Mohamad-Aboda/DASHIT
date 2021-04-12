@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <title>DashIt</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='navstyle.css') }}"/>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    {% include 'includes/_navbar.html' %}
+    <div class="welcome-area" id="welcome">
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
+                        data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>DashIt</h1>
+                        <p>DashIt </a> is a reporting tool that enables you to track your website performance metrics like page views, conversion rate, bounce rate, and more.</a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="section" id="promotion">
+        <div class="container">
+            <div class="row">
+                <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
+                    data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <img src="{{ url_for('static', filename='img/left-image.png') }}" class="rounded img-fluid d-block mx-auto" alt="App">
+                </div>
+                <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
+                    <ul>
+                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                            <img src="{{ url_for('static', filename='img/about-icon-01.png') }}" alt="">
+                            <div class="text">
+                                <h4>Create your DASHIT account</h4>
+                                <p>Enter your email address,username and create a password, that's it!</p>
+                            </div>
+                        </li>
+                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.5s">
+                            <img src="{{ url_for('static', filename='img/about-icon-01.png') }}" alt="">
+                            <div class="text">
+                                <h4>Upload your data</h4>
+                                <p>Upload your data to DashIt, choose what kind of sales or pos or inventory dashboard that you want to create, pick your KPIs, and you're done! It's easy!</p>
+                            </div>
+                        </li>
+                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.6s">
+                            <img src="{{ url_for('static', filename='img/about-icon-01.png') }}" alt="">
+                            <div class="text">
+                                <h4> Create your new dashboard</h4>
+                                <p>Start with our preset dashboard templates or create your own from scratch, either way, it's a matter of just a few clicks!</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='jquery-2.1.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='popper.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='owl-carousel.js') }}"></script>
+    <script src="{{ url_for('static', filename='scrollreveal.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='custom.js') }}"></script>
+</body>
+</html>

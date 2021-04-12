@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Sign in</title>
+  </head>
+  <body>
+    {% include 'includes/_messages.html' %}
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form method = "POST" action="#" class="sign-in-form">
+            <h2 class="title">Sign in</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" name = "username" placeholder="Username" class="form-control"/>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="password" placeholder="Password" />
+            </div>
+                <input class="btn solid" type="submit" onclick="checkErrors()" value="Login"/>
+                <input class="btn transparent" id="sign-up-btn" type=button onClick="parent.location='signup'"  value='create an account'>
+            </form>
+        </div>
+      </div>
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <img src="{{url_for('static', filename='img/1.png')}}" class="image" alt="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      var message = document.getElementsByClassName('alert')[0].firstElementChild.innerText
+      if(message.split('-')[0] == "Success"){
+        Swal.fire({
+        icon: 'success',
+        title: message.split('-')[1],
+        confirmButtonColor: '#FC6A28'
+      });
+      }
+      else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: message,
+          confirmButtonColor: '#FC6A28'
+        });
+      }
+    </script>
+  </body>
+</html>

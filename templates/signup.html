@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Sign up</title>
+  </head>
+  <body>
+    {% include 'includes/_messages.html' %}
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form method="POST" action="" class="sign-up-form">
+            <h2 class="title">Sign up</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              {{form.username(class_='form-control', placeholder ='Username')}}
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              {{form.email(class_='form-control', placeholder ='Email')}}
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              {{form.password(class_='form-control', placeholder ='Password')}}
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              {{form.confirm(class_='form-control', placeholder ='Confirm Password')}}
+            </div>
+            <input class="btn solid" type="submit" value="Sign up" />
+            <input class="btn transparent" id="sign-in-btn" type=button onClick="parent.location='signin'" value='have an account'>
+          </form>
+        </div>
+        <div class="panels-container">
+          <div class="panel left-panel">
+            <div class="content">
+              <img src="{{url_for('static', filename='img/2.png')}}" class="image" alt="" />
+            </div>
+        </div>
+      </div>
+    <script src="app.js"></script>
+    <script>
+      var message = document.getElementsByClassName('alert')[0].firstElementChild.innerText
+      if(message.split('-')[0] == "Success"){
+        Swal.fire({
+        icon: 'success',
+        title: message.split('-')[1],
+        confirmButtonColor: '#FC6A28'
+      });
+      }
+      else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: message,
+          confirmButtonColor: '#FC6A28'
+        });
+      }
+    </script>
+  </body>
+</html>
