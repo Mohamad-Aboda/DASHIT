@@ -31,7 +31,7 @@ def SUBTRACT(data, columns_names):
 
 
 # Devide two columns sum
-def DEVIDE(data, columns_names):
+def DIVIDE(data, columns_names):
     X = columns_names[0]
     Y = columns_names[1]
 
