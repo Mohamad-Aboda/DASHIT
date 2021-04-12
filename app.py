@@ -20,8 +20,17 @@ import pandas as pd
 import pickle
 import io
 import csv
+from flask import Flask, render_template
+import sys
+import logging
+
 
 app = Flask(__name__)
+
+
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 
 ALLOWED_EXTENSIONS = {'csv', 'xlsx'}
